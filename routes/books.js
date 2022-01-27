@@ -75,6 +75,7 @@ router.post('/', uploadOptions.single('image'), async (req, res) => {
             title: req.body.title,
             description: req.body.description,
             author: req.body.author_id,
+            genre: req.body.genre,
             image: `${basePath}${fileName}`
         });
 

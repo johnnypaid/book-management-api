@@ -14,6 +14,9 @@ const bookSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Author'
     },
+    genre: {
+        type: String
+    },
     image: {
         type: String,
         default: ''
