@@ -6,14 +6,6 @@ const {Author} = require('../models/author')
 const {Book} = require('../models/books')
 
 
-router.get('/:author_id', async(req, res) => {
-    const authorBooks = await Book.find({author: req.params.author_id})
-
-    if (!authorBooks) return res.status(500).json({success: false, message: 'Oops no books found!'});
-
-    res.json({success: true, data: authorBooks});
-});
-
 router.post('/register', async(req, res) => {
     const searchAuthor = await Author.findOne({name: req.body.name});
     if (searchAuthor) return res.status(400).json({success: false, error: 'Author name already exist.'});
