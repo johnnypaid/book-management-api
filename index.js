@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const auth = require('./helpers/auth');
+const errorHandler = require('./helpers/error-handler');
 require('dotenv').config();
 
 const app = express();
@@ -13,15 +14,8 @@ app.options('*', cors());
 app.use(express.json());
 app.use(morgan('tiny'));
 app.use(auth());
-app.use((err, req, res, next) => {
-    if (err.code === 'invalid_token') {
-        // Authentication error
-        res.status(401).json({success: false, error: 'User is not authenticated.'});
-    }
-
-    // Generic error.
-    return res.status(500).json({success: false, error: 'Server error.'});
-});
+app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
+app.use(errorHandler);
 
 
 //Routes

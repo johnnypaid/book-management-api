@@ -9,8 +9,10 @@ function auth() {
         isRevoked: isRevoked
     }).unless({
         path: [
+            {url: /\/public\/upload(.*)/, methods: ['GET', 'OPTIONS']},
             {url: /\/api\/books(.*)/, methods: ['GET', 'OPTIONS']},
-            {url: '/api/author/login'}
+            {url: '/api/author/login'},
+            {url: '/api/author/register'}
         ]
     })
 }

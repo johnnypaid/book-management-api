@@ -11,6 +11,8 @@ const authorSchema = new mongoose.Schema({
     },
     password: {
         type: String,
+        maxlength: 250,
+        minlength: 4,
         required: true
     },
     dateRegistered: {

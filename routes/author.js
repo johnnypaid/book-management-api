@@ -3,14 +3,18 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const {Author} = require('../models/author')
+const {Book} = require('../models/books')
 
 
-router.get('/', async(req, res) => {
+router.get('/:author_id', async(req, res) => {
+    const authorBooks = await Book.find({author: req.params.author_id})
 
-    res.json({success: true, data:'No data yet!'})
+    if (!authorBooks) return res.status(500).json({success: false, message: 'Oops no books found!'});
+
+    res.json({success: true, data: authorBooks});
 });
 
-router.post('/', async(req, res) => {
+router.post('/register', async(req, res) => {
     const searchAuthor = await Author.findOne({name: req.body.name});
     if (searchAuthor) return res.status(400).json({success: false, error: 'Author name already exist.'});
 
