@@ -1,0 +1,30 @@
+{
+  "name": "ls",
+  "version": "1.0.0",
+  "description": "Book management api.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnnypaid/book-management-api.git"
+  },
+  "author": "Lester Jainar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnnypaid/book-management-api/issues"
+  },
+  "homepage": "https://github.com/johnnypaid/book-management-api#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3", 
+    "cors": "^2.8.5",
+    "dotenv": "^14.3.2",
+    "express": "^4.17.2",
+    "express-jwt": "^6.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.1.8",
+    "morgan": "^1.10.0"
+  }
+}
