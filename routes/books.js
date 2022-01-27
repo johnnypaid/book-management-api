@@ -121,7 +121,7 @@ router.delete('/author/:author_id/:book_id', async (req, res) => {
 
         if (!deleteBook) return res.status(400).json({success: false, message: 'No books found.'});
 
-        res.send({success: true, message: 'Book deleted successfully.'});
+        res.send({success: true, message: 'Book has been deleted successfully.'});
     } catch (error) {
         res.status(500).json({success: false, error: error.message})
     }
